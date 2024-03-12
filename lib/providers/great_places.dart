@@ -1,10 +1,9 @@
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter_great_places/helpers/location_helper.dart';
 
-import '../helpers/db_helper.dart';
-import '../models/place.dart';
+import 'package:flutter_great_places/helpers/location_helper.dart';
+import 'package:flutter_great_places/helpers/db_helper.dart';
+import 'package:flutter_great_places/models/place.dart';
 
 class GreatPlaces with ChangeNotifier {
   List<Place> _items = [];
@@ -24,7 +23,7 @@ class GreatPlaces with ChangeNotifier {
   ) async {
     final address = await LocationHelper.getPlaceAddress(
         pickedLocation.latitude, pickedLocation.longitude);
-    final updatedLocation = await PlaceLocation(
+    final updatedLocation = PlaceLocation(
       latitude: pickedLocation.latitude,
       longitude: pickedLocation.longitude,
       address: address,

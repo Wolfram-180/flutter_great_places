@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_great_places/screens/map_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/great_places.dart';
+import 'package:flutter_great_places/screens/map_screen.dart';
+import 'package:flutter_great_places/providers/great_places.dart';
 
 class PlaceDetailScreen extends StatelessWidget {
-  const PlaceDetailScreen({Key? key}) : super(key: key);
+  const PlaceDetailScreen({super.key});
 
   static const routeName = '/place-detail';
 
@@ -20,7 +20,7 @@ class PlaceDetailScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             height: 250,
             width: double.infinity,
             child: Image.file(
@@ -29,16 +29,16 @@ class PlaceDetailScreen extends StatelessWidget {
               width: double.infinity,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             selectedPlace.location!.address,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               color: Colors.grey,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TextButton(
             onPressed: () {
               Navigator.of(context).push(
@@ -51,7 +51,7 @@ class PlaceDetailScreen extends StatelessWidget {
                 ),
               );
             },
-            child: Text('View on map'),
+            child: const Text('View on map'),
             //textColor: Theme.of(context).primaryColor,
           ),
         ],

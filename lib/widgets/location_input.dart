@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
+
 import 'package:flutter_great_places/helpers/location_helper.dart';
 import 'package:flutter_great_places/screens/map_screen.dart';
-import 'package:location/location.dart';
 
 class LocationInput extends StatefulWidget {
   final Function onSelectPlace;
 
-  LocationInput(this.onSelectPlace);
+  const LocationInput(this.onSelectPlace, {super.key});
 
   @override
   _LocationInputState createState() => _LocationInputState();
@@ -38,7 +39,7 @@ class _LocationInputState extends State<LocationInput> {
     final LatLng? selectedLocation = await Navigator.of(context).push<LatLng>(
       MaterialPageRoute(
         fullscreenDialog: true,
-        builder: (ctx) => MapScreen(
+        builder: (ctx) => const MapScreen(
           isSelecting: true,
         ),
       ),
@@ -75,20 +76,18 @@ class _LocationInputState extends State<LocationInput> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton.icon(
-              icon: Icon(
+              icon: const Icon(
                 Icons.location_on,
               ),
               onPressed: _getCurrentUserLocation,
-              label: Text('Current location'),
-              //textColor: Theme.of(context).primaryColor,
+              label: const Text('Current location'),
             ),
             TextButton.icon(
-              icon: Icon(
+              icon: const Icon(
                 Icons.map,
               ),
               onPressed: _selectOnMap,
-              label: Text('Select on map'),
-              //textColor: Theme.of(context).primaryColor,
+              label: const Text('Select on map'),
             ),
           ],
         ),
